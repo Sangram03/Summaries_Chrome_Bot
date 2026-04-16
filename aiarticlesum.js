@@ -1,4 +1,3 @@
-// popup.js (updated) ---------------------------------------------------------
 
 // --- Helpers / Globals ---
 const LANG_DEFAULT = "en-US"; // fallback language for TTS & prompt usage
@@ -647,7 +646,7 @@ let listening = false;
 function initVoiceAssistant() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SpeechRecognition) {
-    alert("❌ Speech Recognition is not supported in this browser.");
+    alert("Speech Recognition is not supported in this browser.");
     return;
   }
 
@@ -671,7 +670,7 @@ function initVoiceAssistant() {
     console.error("Speech recognition error:", event.error);
 
     if (event.error === "not-allowed" || event.error === "service-not-allowed") {
-      alert("⚠️ Microphone access is blocked. Please allow mic access:\n\n1. Go to Chrome Settings → Privacy and security → Site Settings.\n2. Find your extension under 'View permissions and data stored'.\n3. Enable Microphone.");
+      alert(" Microphone access is blocked. Please allow mic access:\n\n1. Go to Chrome Settings → Privacy and security → Site Settings.\n2. Find your extension under 'View permissions and data stored'.\n3. Enable Microphone.");
     } else {
       alert("Speech recognition error: " + event.error);
     }
@@ -911,7 +910,6 @@ window.addEventListener("DOMContentLoaded", () => {
 // font-builder.js - Robust single file (drop-in replacement)
 // Assumes popup context (chrome.runtime.getURL available). Adjust paths if used outside an extension.
 (function () {
-  console.log("[font-builder] init");
 
   const PREVIEW = "Hello"; // preview text
   const localJson = chrome?.runtime ? chrome.runtime.getURL("fonts/fonts_local.json") : "fonts_local.json";

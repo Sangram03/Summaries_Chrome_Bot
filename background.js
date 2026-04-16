@@ -10,6 +10,7 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+// Download the pdf
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "downloadPDF") {
     chrome.downloads.download({
@@ -27,6 +28,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true; // keeps sendResponse async
   }
 });
+
+
+
 
 
 
